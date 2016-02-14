@@ -14,7 +14,13 @@ RUN apt-get update && apt-get -y install build-essential \
  libxml2-dev \
  libxslt1-dev \
  curl \
- abiword
+ abiword \
+ graphviz \
+ libgraphviz-dev \
+ pkg-config \
+ python-setuptools \ 
+ python-dev \
+ ncurses-dev
 
 ENV PROJECT_PATH /legcowatch
 ENV INSIDE_DOCKER TRUE
