@@ -153,4 +153,7 @@ SCRAPY_FILES_PATH = './legco-data/files'
 #SCRAPY_FILES_PATH = '/home/long/Desktop/legco-watch/files'
 
 # Import settings local to this machine
-from .local import *
+if os.environ["INSIDE_DOCKER"] == "TRUE":
+    from .docker import *
+else:
+    from .local import *

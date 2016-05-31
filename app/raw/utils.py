@@ -8,8 +8,7 @@ from scrapy.crawler import Crawler
 from scrapy.utils.project import get_project_settings
 import magic
 import subprocess
-#import pydocx
-from pydocx import PyDocX
+import pydocx
 import os
 import lxml.etree
 import lxml.html
@@ -89,7 +88,7 @@ def docx_to_html(filepath, overwrite=False):
     html_file = '{}.html'.format(filepath)
     if not os.path.exists(html_file) or overwrite:
         #res = pydocx.docx2html(filepath)
-        res = PyDocX.to_html(filepath)
+        res = pydocx.PyDocX.to_html(filepath)
         with open(html_file, 'wb') as tmp:
             tmp.write(res.encode('utf-8'))
     else:
@@ -159,7 +158,7 @@ def merge_docx(docx_list=None, out_htmlpath=None):
     html_list = []
     for path in docx_list:
         try:
-            tmp_html =  PyDocX.to_html(path)
+            tmp_html = pydocx.PyDocX.to_html(path)
             html_list.append(cleaner.clean_html(lxml.html.fromstring(tmp_html, parser=parser)))
         except:
             #'MalformedDocxException'

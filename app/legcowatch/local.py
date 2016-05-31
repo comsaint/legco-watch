@@ -21,10 +21,10 @@ TEMPLATE_DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lwdb',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'e8aVqxwaKVXMfBT\q',
-        'HOST': 'localhost',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
         'PORT': '5432'
     }
 }
